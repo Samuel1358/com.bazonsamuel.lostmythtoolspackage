@@ -1,0 +1,17 @@
+{
+    "name": "LostMythToolsPackage.Multiprefab.Editor",
+    "rootNamespace": "LostMythToolsPackage.Multiprefab.Editor",
+    "references": [
+        "GUID:ec14db71a9954b94f862e3d361b0ac4b",
+        "GUID:74f8289ace80b95449b3869391b8e87c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
