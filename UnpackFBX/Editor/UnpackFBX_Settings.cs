@@ -15,5 +15,10 @@ namespace LostMythToolsPackage.UnpackFBX
     {
         public string DefaultPath;
         public bool OpenWhenImport;
+
+        public UnpackFBX_SettingsData()
+        {
+            DefaultPath = Application.dataPath;
+        }
     }
 }
