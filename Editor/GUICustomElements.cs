@@ -13,7 +13,93 @@ namespace LostMythToolsPackage.Editor
 
         #region // Dialog
 
+        #region // File
 
+
+
+        #endregion
+
+        #region // Folder
+
+        public static void FolderDialog(string fieldLable, string buttonLable, string dialogTitle, string dialogDefaultName, ref string folderPath)
+        {
+            m_FolderDialog(fieldLable, buttonLable, dialogTitle, dialogDefaultName, ref folderPath, null);
+        }
+
+        public static void FolderDialog(string fieldLable, string dialogTitle, string dialogDefaultName, ref string folderPath)
+        {
+            m_FolderDialog(fieldLable, ". . .", dialogTitle, dialogDefaultName, ref folderPath, null);
+        }
+
+        /*public static void FolderDialog(string buttonLable, string dialogTitle, string dialogDefaultName, ref string folderPath)
+        {
+
+        }*/
+
+        public static void FolderDialog(string dialogTitle, string dialogDefaultName, ref string folderPath)
+        {
+            m_FolderDialog("", ". . .", dialogTitle, dialogDefaultName, ref folderPath, null);
+        }
+
+        public static void FolderDialog(string fieldLable, string buttonLable, string dialogTitle, string dialogDefaultName, ref string folderPath, GUILayoutOption[] buttonLayout)
+        {
+            m_FolderDialog(fieldLable, buttonLable, dialogTitle, dialogDefaultName, ref folderPath, buttonLayout);
+        }
+
+        public static void FolderDialog(string fieldLable, string dialogTitle, string dialogDefaultName, ref string folderPath, GUILayoutOption[] buttonLayout)
+        {
+            m_FolderDialog(fieldLable, ". . .", dialogTitle, dialogDefaultName, ref folderPath, buttonLayout);
+        }
+
+        public static void FolderDialog(string dialogTitle, string dialogDefaultName, ref string folderPath, GUILayoutOption[] buttonLayout)
+        {
+            m_FolderDialog("", ". . .", dialogTitle, dialogDefaultName, ref folderPath, buttonLayout);
+        }
+
+
+        private static void m_FolderDialog(string fieldLable, string buttonLable, string dialogTitle, string dialogDefaultName, ref string folderPath/*, GUILayoutOption[] fieldLayout*/, GUILayoutOption[] buttonLayout)
+        {
+            GUILayout.BeginHorizontal();
+
+            if (fieldLable != null && fieldLable != "")
+                GUILayout.Label(fieldLable, GUILayout.MinWidth(fieldLable.Length * EditorGUIUtility.singleLineHeight * 0.4f), GUILayout.MaxWidth(EditorGUIUtility.currentViewWidth * 0.2f));
+
+            EditorGUI.BeginDisabledGroup(true);
+
+            EditorGUILayout.TextField(folderPath/*, fieldLayout*/);
+
+            EditorGUI.EndDisabledGroup();
+
+            if (GUILayout.Button(buttonLable, buttonLayout))
+            {
+                string path;
+
+                if (folderPath == null || folderPath == "")
+                    path = EditorUtility.OpenFolderPanel(dialogTitle, Application.dataPath, dialogDefaultName);
+                else
+                    path = EditorUtility.OpenFolderPanel(dialogTitle, folderPath, dialogDefaultName);
+
+                if (path.Length >= Application.dataPath.Length)
+                    if (path.StartsWith(Application.dataPath))
+                        folderPath = path;
+                    
+            }
+
+            GUILayout.EndHorizontal();
+        }
+
+        /*private static void m_FolderDialog()
+        {
+            EditorGUILayout.PropertyField(_folderPath);
+
+            if (GUILayout.Button(". . .", GUILayout.Width(EditorGUIUtility.currentViewWidth * 0.1f), GUILayout.MinWidth(54), GUILayout.Height(EditorGUIUtility.singleLineHeight)))
+            {
+                string path = EditorUtility.OpenFolderPanel("Unity engine - Unpack FBX", Application.dataPath, "");
+                _data.folderPath = StripPath(path);
+            }
+        }*/
+
+        #endregion
 
         #endregion
 

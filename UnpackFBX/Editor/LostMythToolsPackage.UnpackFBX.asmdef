@@ -1,7 +1,9 @@
 {
     "name": "LostMythToolsPackage.UnpackFBX",
     "rootNamespace": "LostMythToolsPackage.UnpackFBX",
-    "references": [],
+    "references": [
+        "GUID:74f8289ace80b95449b3869391b8e87c"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

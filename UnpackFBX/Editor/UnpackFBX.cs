@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using LostMythToolsPackage.Editor;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -64,19 +66,22 @@ namespace LostMythToolsPackage.UnpackFBX
                 }
             }
 
-            GUILayout.BeginHorizontal();
+            /*GUILayout.BeginHorizontal();
 
             EditorGUILayout.PropertyField(_folderPath);
 
             if (GUILayout.Button(". . .", GUILayout.Width(EditorGUIUtility.currentViewWidth * 0.1f), GUILayout.MinWidth(54), GUILayout.Height(EditorGUIUtility.singleLineHeight)))
             {
-                string path = EditorUtility.OpenFolderPanel("Unity engine - Unpack FBX", Application.dataPath, "");
-                _data.folderPath = StripPath(path);                
+                _data.folderPath = EditorUtility.OpenFolderPanel("Unity engine - Unpack FBX", Application.dataPath, "");
+                //_data.folderPath = StripPath(path);                
             }
 
-            GUILayout.EndHorizontal();
+            GUILayout.EndHorizontal();*/
 
-            if (!Directory.Exists(Application.dataPath + _data.folderPath))
+            GUICustomElements.FolderDialog("Folder Path", "Unity engine - Unpack FBX", "", ref _data.folderPath,
+                new GUILayoutOption[] { GUILayout.Width(EditorGUIUtility.currentViewWidth * 0.1f), GUILayout.MinWidth(54), GUILayout.Height(EditorGUIUtility.singleLineHeight) });
+
+            if (!Directory.Exists(_data.folderPath))
             {
                 EditorGUILayout.HelpBox($"'{_data.folderPath}' it's not a existent path!", MessageType.Warning);
             }
@@ -120,7 +125,7 @@ namespace LostMythToolsPackage.UnpackFBX
                 }
                 else
                 {
-                    string path = Application.dataPath + "/" + _data.folderPath;
+                    string path = Application.dataPath + "/" + StripPath(_data.folderPath);
                     if (Directory.Exists(path))                    
                     {
                         Unpack(_data.children, _data.objCheckBoxes, _data.staticCheckBoxes, path, _isOverride);
@@ -289,7 +294,7 @@ namespace LostMythToolsPackage.UnpackFBX
         {
             public GameObject FBX;
             [Tooltip("Path to the folder where the FBX should be unpacked.")]
-            [SerializeField] public string folderPath;
+            [SerializeField] public string folderPath = UnpackFBX_Settings.DefaultPath;
             public List<GameObject> children = new List<GameObject>();
             public List<bool> objCheckBoxes = new List<bool>();
             public List<bool> staticCheckBoxes = new List<bool>();
