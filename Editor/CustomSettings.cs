@@ -1,9 +1,9 @@
 using System.IO;
 using UnityEngine;
 
+#if UNITY_EDITOR
 namespace LostMythToolsPackage.Editor
 {
-#if UNITY_EDITOR
     public abstract class CustomSettings<Tdata, Tself> where Tdata : class, new() where Tself : CustomSettings<Tdata, Tself>
     {
         private static string _path;
@@ -58,5 +58,5 @@ namespace LostMythToolsPackage.Editor
             _data = JsonUtility.FromJson<Tdata>(json);
         }
     }
-#endif
 }
+#endif

@@ -5,9 +5,9 @@ using UnityEditor;
 using LostMythToolsPackage.Editor;
 #endif
 
+#if UNITY_EDITOR
 namespace LostMythToolsPackage.Multiprefab.Editor
 {
-#if UNITY_EDITOR
     [CustomEditor(typeof(MultiPrefab))]
     public class MultiPrefebEditor : UnityEditor.Editor
     {
@@ -172,5 +172,5 @@ namespace LostMythToolsPackage.Multiprefab.Editor
 
         #endregion
     }
-#endif
 }
+#endif

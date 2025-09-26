@@ -1,15 +1,14 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using LostMythToolsPackage.Editor;
-
 #if UNITY_EDITOR
 using UnityEditor;
+using LostMythToolsPackage.Editor;
 #endif
 
+#if UNITY_EDITOR
 namespace LostMythToolsPackage.UnpackFBX
 {
-#if UNITY_EDITOR
     public class UnpackFBXWindow : EditorWindow
     {
         private UnpackFBXWindowData _data;
@@ -342,5 +341,5 @@ namespace LostMythToolsPackage.UnpackFBX
             }
         }
     }
-#endif
 }
+#endif

@@ -1,8 +1,11 @@
 using UnityEngine;
-using UnityEditor;
 using UnityEngine.UIElements;
+#if UNITY_EDITOR
+using UnityEditor;
 using LostMythToolsPackage.Editor;
+#endif
 
+#if UNITY_EDITOR
 namespace LostMythToolsPackage.UnpackFBX
 {
     public class UnpackFBX_SettingsProvider : SettingsProvider
@@ -42,3 +45,4 @@ namespace LostMythToolsPackage.UnpackFBX
         }
     }
 }
+#endif

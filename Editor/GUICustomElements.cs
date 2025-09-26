@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
+#if UNITY_EDITOR
 namespace LostMythToolsPackage.Editor
 {
-#if UNITY_EDITOR
     public static class GUICustomElements
     {
         private static Color lightBlue = new Color(0.5490196078431373f, 0.7450980392156863f, 0.9803921568627451f);
@@ -467,5 +467,5 @@ namespace LostMythToolsPackage.Editor
 
         #endregion
     }
-#endif
 }
+#endif

@@ -1,6 +1,9 @@
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
+#if UNITY_EDITOR
 namespace LostMythToolsPackage.UnpackFBX
 {
     public class UnpackFBX_ImportObserver : AssetPostprocessor
@@ -15,3 +18,4 @@ namespace LostMythToolsPackage.UnpackFBX
         }
     }
 }
+#endif
