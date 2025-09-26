@@ -1,6 +1,6 @@
 {
   "name": "com.bazonsamuel.lostmythtoolspackage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Lost Myth Gatinho's Tools",
   "description": "Tools package made by Samuel Gatinho Bazon to assist the development of 'Lost Myth'. \n\nInclude: UnpackFBX & MultiPrefab",
   "unity": "6000.0",
